@@ -10,7 +10,7 @@ final class AgedBrieCalculatorStrategy extends AbstractCalculatorStrategy
     {
         --$this->item->sell_in;
 
-        if ($this->item->quality < 50) {
+        if ($this->item->quality < AbstractCalculatorStrategy::ITEM_MAX_QUALITY) {
             ++$this->item->quality;
 
             if ($this->item->sell_in < 0) {
