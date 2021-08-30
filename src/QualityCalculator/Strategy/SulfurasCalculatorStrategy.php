@@ -8,7 +8,7 @@ final class SulfurasCalculatorStrategy extends AbstractCalculatorStrategy
 {
     public function calculate(): void
     {
-        if (AbstractCalculatorStrategy::ITEM_MAX_QUALITY) {
+        if ($this->item->quality < AbstractCalculatorStrategy::ITEM_MAX_QUALITY) {
             ++$this->item->quality;
         }
     }

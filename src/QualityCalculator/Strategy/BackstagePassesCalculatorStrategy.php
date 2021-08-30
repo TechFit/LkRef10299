@@ -8,17 +8,15 @@ final class BackstagePassesCalculatorStrategy extends AbstractCalculatorStrategy
 {
     public function calculate(): void
     {
-        $qualityLessThanLimit = $this->item->quality < AbstractCalculatorStrategy::ITEM_MAX_QUALITY;
-
-        if ($qualityLessThanLimit) {
+        if ($this->item->quality < AbstractCalculatorStrategy::ITEM_MAX_QUALITY) {
             ++$this->item->quality;
         }
 
-        if (($this->item->sell_in < 11) && $qualityLessThanLimit) {
+        if (($this->item->sell_in < 11) && $this->item->quality < AbstractCalculatorStrategy::ITEM_MAX_QUALITY) {
             ++$this->item->quality;
         }
 
-        if (($this->item->sell_in < 6) && $qualityLessThanLimit) {
+        if (($this->item->sell_in < 6) && $this->item->quality < AbstractCalculatorStrategy::ITEM_MAX_QUALITY) {
             ++$this->item->quality;
         }
 
